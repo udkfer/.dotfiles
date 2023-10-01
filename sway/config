@@ -5,11 +5,17 @@
 # Read `man 5 sway` for a complete reference.
 
 output eDP-1 scale 1.5
+output HDMI-A-1 adaptive_sync on scale 1.5
 
-default_border pixel 1
+default_border pixel
 smart_borders on
 font pango:Hack Nerd Font 12
+bindswitch lid:on output eDP-1 disable
+bindswitch lid:off output eDP-1 enable
 
+# class           border   background  text     indicator  child_border
+client.focused    #3c3836   #3c3836   #3c3836 
+client.unfocused  #7c6f64   #7c6f64   #7c6f64
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -141,7 +147,7 @@ set $right l
 #
 # Layout stuff:
 #
-    # You can "split" the current object of your focus with
+    # You can "split" the current object of your focus +with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
     bindsym $mod+b splith
@@ -205,20 +211,20 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
+    position bottom
     mode hide
     modifier Mod1
-
     # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y/%m/%d (%a) %H:%M'; do sleep 60; done
+    # Status with battery, date, week and time
+    status_command while true; do echo "$(< /sys/class/power_supply/BAT0/capacity)󱐋 $(date '+%Y/%m/%d %B/%A %R')"; sleep 60; done
+
 
     colors {
-        background #fbf1c7
-        statusline #282828
-        separator #282828
-        focused_workspace #282828 #fbf1c7 #282828
-        inactive_workspace #fbf1c7 #fbf1c7 #282828
+        background #fbf1c7 
+        statusline #3c3836
+        focused_workspace #3c3836 #fbf1c7 #3c3836
+        active_workspace #fbf1c7 #fbf1c7 #3c3836
+        inactive_workspace #fbf1c7 #fbf1c7 #3c3836
     }
 }
 
