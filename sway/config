@@ -3,9 +3,22 @@
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
+output "HDMI-A-1" {
+    mode  3840x2160@120.0Hz
+    pos 0 0
+    transform normal
+    scale 3.0
+    scale_filter nearest
+    adaptive_sync on
+    dpms on
+}
 
-output eDP-1 scale 1.5
-output HDMI-A-1 adaptive_sync on scale 1.5
+output * bg "#000000" solid_color
+
+#seat * hide_cursor 3000
+seat * hide_cursor when-typing enable
+
+exec wl-paste -t text --watch clipman store --no-persist 
 
 default_border pixel
 smart_borders on
@@ -14,8 +27,8 @@ bindswitch lid:on output eDP-1 disable
 bindswitch lid:off output eDP-1 enable
 
 # class           border   background  text     indicator  child_border
-client.focused    #3c3836   #3c3836   #3c3836 
-client.unfocused  #7c6f64   #7c6f64   #7c6f64
+client.focused    #1F2328   #1F2328   #1F2328 
+client.unfocused  #57606a   #57606a   #57606a
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -34,6 +47,7 @@ set $right l
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+
 #
 # Example configuration:
 #
@@ -216,15 +230,14 @@ bar {
     modifier Mod1
     # When the status_command prints a new line to stdout, swaybar updates.
     # Status with battery, date, week and time
-    status_command while true; do echo "$(< /sys/class/power_supply/BAT0/capacity)󱐋 $(date '+%Y/%m/%d %B/%A %R')"; sleep 60; done
-
+    status_command while true; do echo " $(cat '/sys/class/power_supply/BAT0/capacity')󱐋 $(date '+%Y/%m/%d %B/%A %R')"; sleep 60; done
 
     colors {
-        background #fbf1c7 
-        statusline #3c3836
-        focused_workspace #3c3836 #fbf1c7 #3c3836
-        active_workspace #fbf1c7 #fbf1c7 #3c3836
-        inactive_workspace #fbf1c7 #fbf1c7 #3c3836
+        background #ffffff 
+        statusline #1F2328
+        focused_workspace #1F2328 #ffffff #1F2328
+        active_workspace #ffffff #ffffff #1F2328
+        inactive_workspace #ffffff #ffffff #1F2328
     }
 }
 

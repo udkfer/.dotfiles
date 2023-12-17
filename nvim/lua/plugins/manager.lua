@@ -21,7 +21,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Set up lazy.nvim and configure plugins
 require('lazy').setup({
 
-  { "ellisonleao/gruvbox.nvim" },
+  {"projekt0n/github-nvim-theme", lazy = false, priority = 1000},
 
   {'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
@@ -70,6 +70,15 @@ require('lazy').setup({
         'nvim-telescope/telescope.nvim', tag = '0.1.2',
         -- or                              , branch = '0.1.x',
         dependencies = { 'nvim-lua/plenary.nvim' }
+      },
+      {"nvim-tree/nvim-web-devicons"},
+      {
+        "folke/trouble.nvim",
+        dependencies = {
+          "nvim-tree/nvim-web-devicons",
+        },
+        opts = {
+        },
       }
     }
   }
