@@ -3,12 +3,14 @@
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
+
+
 output "HDMI-A-1" {
     mode  3840x2160@120.0Hz
     pos 0 0
     transform normal
-    scale 3.0
-    scale_filter nearest
+    scale 3.5
+    scale_filter smart
     adaptive_sync on
     dpms on
 }
