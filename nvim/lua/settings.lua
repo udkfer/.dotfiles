@@ -1,7 +1,6 @@
-
 local opt = {
   number = true,
-  relativenumber = true,
+  relativenumber = false,
   laststatus = 0,
   cursorline = true,
   shiftwidth = 2,
@@ -9,6 +8,7 @@ local opt = {
   softtabstop = 2,
   expandtab = true,
   clipboard = "unnamedplus",
+  wrap = true,
 }
 
 for k, v in pairs(opt) do

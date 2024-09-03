@@ -1,3 +1,3 @@
 require "keymap"
 require "settings"
-require "plugins.manager"
+require("config.lazy")
