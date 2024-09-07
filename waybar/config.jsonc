@@ -1,0 +1,54 @@
+{
+  // "layer": "top", // Waybar at top layer
+  // "position": "bottom", // Waybar position (top|bottom|left|right)
+  // "height": 30, // Waybar height (to be removed for auto height)
+  // "width": 1280, // Waybar width
+  // Choose the order of the modules
+ "mode": "hide",
+ "start_hidden": true,
+
+  "modules-left": [
+    "hyprland/workspaces",
+  ],
+
+  "modules-right": [
+    "pulseaudio",
+    "network",
+    "battery",
+    "clock",
+  ],
+
+  "clock": {
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  },
+
+  "battery": {
+    "states": {
+      "good": 99,
+      "medium": 66,
+      "low": 33
+    },
+    "format": "{capacity}% 󰁹",
+    "format-plugged": "{capacity}% 󰚥",
+  },
+
+  "network": {
+    "format-wifi": "{essid} ({signalStrength}%) 󰖩",
+    "format-ethernet": "{ipaddr}/{cidr} 󰈀",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "format-disconnected": "Disconnected 󰅖",
+  },
+
+  "pulseaudio": {
+    "format": "{volume}% {icon} {format_source}",
+    "format-muted": "󰖁 {format_source}",
+    "format-source": "{volume}% 󰍬",
+    "format-source-muted": "󰍭",
+    "format-icons": {
+      "headphone": "󰋋",
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-click": "pavucontrol"
+  },
+}
